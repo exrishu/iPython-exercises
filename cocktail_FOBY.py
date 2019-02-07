@@ -1,4 +1,8 @@
 import matplotlib.pyplot as plt
-plt.plot([0, 2, 3, 4], [2, 5, 6, 8], 'r')
-plt.axis([0, 5, 0, 10])
+import numpy as np
+
+
+t = np.arange(0., 12., .2)
+print(t)
+plt.plot(t, t, 'r:', t, t**2, 'b:', t, t**3, 'g:')
 plt.show()
