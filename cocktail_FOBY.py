@@ -2,7 +2,15 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-t = np.arange(0., 12., .2)
-print(t)
-plt.plot(t, t, 'r:', t, t**2, 'b:', t, t**3, 'g:')
+data = {'a': np.arange(50),
+        'c': np.random.randint(0, 50, 50),
+        'd': np.random.randn(50)
+        }
+data['b'] = data['a'] + 10 * np.random.randn(50)
+
+data['d'] = np.abs(data['d']) * 100
+
+plt.scatter('a', 'b', c='c', s='d', data=data)
+
 plt.show()
+
