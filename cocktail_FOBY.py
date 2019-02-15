@@ -23,8 +23,19 @@ print("Sample count :", n)
 n = n * 1.0
 
 
-#Input data of first mix sound
+#Input data of second mix sound
+samplingRate, signal2 = wavfile.read('sounds/mix2.wav')
+signal2 = signal2 / 255.0 - 0.5
 
+#Intializing the matrix
+x = [signal1, signal2]
+
+#Plotting the signals into the graph to show correlations in data
+
+plt.figure()      #Intializing the graph or say figure
+plt.plot(x[0], x[1], 'r:')    # taking x,y values from signal1 and signal2
+plt.title("Plotting signal of both input samples")   #Assigning title to graph
+plt.show()   #Display the graph
 
 
 
