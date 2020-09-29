@@ -12,6 +12,7 @@ Enter the User's choice:
 
 
 def menu():
+	database.create_new_file()
 	choice = input(user)
 	while choice.lower() != 'q':
 		if choice.lower() == 'a':
@@ -37,7 +38,7 @@ def list_book():
 	i = 0
 	for book in books:
 		i = i + 1
-		read = 'YES' if book['read'] == '1' else 'NO'
+		read = 'YES' if book['read'] else 'NO'
 		print(f" {i} - \n Book Name : {book['name']},\nAuthor :{book['author']},\nRead:{read} \n\n")
 
 
