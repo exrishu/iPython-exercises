@@ -7,11 +7,14 @@ def create_new_file():
 		cursor.execute('CREATE TABLE IF NOT EXISTS books(name text primary key ,author text,read integer)')
 
 
+
 def add_books(name, author):
 	with DatabaseConnection('data.db') as connection:
 		cursor = connection.cursor()
-		cursor.execute('INSERT INTO BOOKS VALUES (?,?,0)', (name, author))
-
+		try:
+			cursor.execute('INSERT INTO BOOKS VALUES (?,?,0)', (name, author))
+		except connection.IntegrityError:
+			print(f'{name} is already present in the your library')
 
 def display_book():
 	with DatabaseConnection('data.db') as connection:
